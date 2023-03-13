@@ -1,39 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SceneControlButton : MonoBehaviour
 {
-    enum TargetScene
-    {
-        Next,
-        Previous,
-        MainMenu
-    }
+	enum TargetScene
+	{
+		Next,
+		Previous,
+		MainMenu
+	}
 
-    [SerializeField] TargetScene targetScene;
-    Button button;
-    void Start()
-    {
-        button = GetComponent<Button>();
+	[SerializeField] TargetScene targetScene;
+	Button button;
 
-        button.onClick.RemoveAllListeners();
-        switch(targetScene)
-        {
-            case TargetScene.MainMenu:
-                button.onClick.AddListener(() => SceneController.LoadMainScene());
-                    break;
+	void Start()
+	{
+		button = GetComponent<Button>();
 
-            case TargetScene.Next:
-                button.onClick.AddListener(() => SceneController.LoadNextScene());
-                break;
+		button.onClick.RemoveAllListeners();
+		switch (targetScene)
+		{
+			case TargetScene.MainMenu:
+				button.onClick.AddListener(() => SceneController.LoadMainScene());
+				break;
 
-            case TargetScene.Previous:
-                button.onClick.AddListener(() => SceneController.LoadPreviousScene());
-                break;
-        }
-    }
+			case TargetScene.Next:
+				button.onClick.AddListener(() => SceneController.LoadNextScene());
+				break;
 
-   
+			case TargetScene.Previous:
+				button.onClick.AddListener(() => SceneController.LoadPreviousScene());
+				break;
+		}
+
+	}
 }

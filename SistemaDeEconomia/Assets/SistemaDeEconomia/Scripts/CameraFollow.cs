@@ -1,21 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+	public Transform target;
 
-    Transform cam;
-    Vector3 offset;
-    void Start()
-    {
-        cam = Camera.main.transform;
-        offset = cam.position - target.position;
-    }
+	Transform cam;
+	Vector3 offset;
 
-    void LateUpdate()
-    {
-        cam.position = target.position + offset;
-    }
+	void Start()
+	{
+		cam = Camera.main.transform;
+		offset = cam.position - target.position;
+	}
+
+	void LateUpdate()
+	{
+		cam.position = target.position + offset;
+	}
 }

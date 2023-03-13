@@ -1,109 +1,110 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
-[System.Serializable]public class CharactersShopData
+//Shop Data Holder
+[System.Serializable]
+public class CharactersShopData
 {
-    public List<int> purchasedCharactersIndexes = new List<int>();
+	public List<int> purchasedCharactersIndexes = new List<int>();
 }
-[System.Serializable] public class PlayerData
+//Player Data Holder
+[System.Serializable]
+public class PlayerData
 {
-    public int coins = 0;
-    public int selectedCharacterIndex = 0;
+	public int coins = 0;
+	public int selectedCharacterIndex = 0;
 }
-public static class GameDataManager 
+
+public static class GameDataManager
 {
-    static PlayerData playerData = new PlayerData();
-    static CharactersShopData charactersShopData = new CharactersShopData();
+	static PlayerData playerData = new PlayerData();
+	static CharactersShopData charactersShopData = new CharactersShopData();
 
-    static Character selectedCharacter;
+	static Character selectedCharacter;
 
-    static GameDataManager()
-    {
-        LoadPlayerData();
-        LoadCharactersShopData();
-    }
+	static GameDataManager()
+	{
+		LoadPlayerData();
+		LoadCharactersShopData();
+	}
 
-    public static Character GetSelectedCharacter()
-    {
-        return selectedCharacter;
-    }
-    public static Character SelectedCharacter()
-    {
-        return selectedCharacter;
-    }
+	//Player Data Methods -----------------------------------------------------------------------------
+	public static Character GetSelectedCharacter()
+	{
+		return selectedCharacter;
+	}
 
-    public static void SetSelectedCharacter(Character character, int index)
-    {
-        selectedCharacter = character;
-        playerData.selectedCharacterIndex = index;
-        SavePlayerData();
-    }
-    public static int GetSelectedCharacterIndex()
-    {
-        return playerData.selectedCharacterIndex;
-    }
-    
-    public static int GetCoins()
-    {
-        return playerData.coins;
-    }
+	public static void SetSelectedCharacter(Character character, int index)
+	{
+		selectedCharacter = character;
+		playerData.selectedCharacterIndex = index;
+		SavePlayerData();
+	}
 
-    public static void AddCoins(int amount)
-    {
-        playerData.coins += amount;
-        SavePlayerData();
-    }
-    public static bool CanSpendCoins(int amount)
-    {
-        return (playerData.coins >= amount);
-    }
+	public static int GetSelectedCharacterIndex()
+	{
+		return playerData.selectedCharacterIndex;
+	}
 
-    public static void SpendCoins(int amount)
-    {
-        playerData.coins -= amount;
-        SavePlayerData();
-    }
+	public static int GetCoins()
+	{
+		return playerData.coins;
+	}
 
-    static void LoadPlayerData()
-    {
-        playerData = BinarySerializer.Load<PlayerData>("player-data.txt");
-        UnityEngine.Debug.Log("<color=green>[PlayerData]Loaded.</color>");
-    }
+	public static void AddCoins(int amount)
+	{
+		playerData.coins += amount;
+		SavePlayerData();
+	}
 
-    static void SavePlayerData()
-    {
-        BinarySerializer.Save(playerData, "player-data.txt");
-        UnityEngine.Debug.Log("<color=magenta>[PlayerData]Saved.</color>");
-    }
+	public static bool CanSpendCoins(int amount)
+	{
+		return (playerData.coins >= amount);
+	}
 
-    public static void AddPurchasedCharacter(int characterIndex)
-    {
-        charactersShopData.purchasedCharactersIndexes.Add(characterIndex);
-        SaveCharactersShopData();
-    }
+	public static void SpendCoins(int amount)
+	{
+		playerData.coins -= amount;
+		SavePlayerData();
+	}
 
-    public static List<int> GetAllPurchasedCharacter()
-    {
-        return charactersShopData.purchasedCharactersIndexes;
-    }
+	static void LoadPlayerData()
+	{
+		playerData = BinarySerializer.Load<PlayerData>("player-data.txt");
+		UnityEngine.Debug.Log("<color=green>[PlayerData] Loaded.</color>");
+	}
 
-    public static int GetPurchasedCharacter(int index)
-    {
-        return charactersShopData.purchasedCharactersIndexes[index];
-    }
+	static void SavePlayerData()
+	{
+		BinarySerializer.Save(playerData, "player-data.txt");
+		UnityEngine.Debug.Log("<color=magenta>[PlayerData] Saved.</color>");
+	}
 
+	//Characters Shop Data Methods -----------------------------------------------------------------------------
+	public static void AddPurchasedCharacter(int characterIndex)
+	{
+		charactersShopData.purchasedCharactersIndexes.Add(characterIndex);
+		SaveCharactersShoprData();
+	}
 
-    static void LoadCharactersShopData()
-    {
-       charactersShopData = BinarySerializer.Load<CharactersShopData>("characters-shop-data.txt");
-        UnityEngine.Debug.Log("<color=green>[PlayerData]Loaded.</color>");
-    }
+	public static List<int> GetAllPurchasedCharacter()
+	{
+		return charactersShopData.purchasedCharactersIndexes;
+	}
 
-    static void SaveCharactersShopData()
-    {
-        BinarySerializer.Save(charactersShopData, "characters-shop-data.txt");
-        UnityEngine.Debug.Log("<color=magenta>[PlayerData]Saved.</color>");
-    }
+	public static int GetPurchasedCharacter(int index)
+	{
+		return charactersShopData.purchasedCharactersIndexes[index];
+	}
 
+	static void LoadCharactersShopData()
+	{
+		charactersShopData = BinarySerializer.Load<CharactersShopData>("characters-shop-data.txt");
+		UnityEngine.Debug.Log("<color=green>[CharactersShopData] Loaded.</color>");
+	}
+
+	static void SaveCharactersShoprData()
+	{
+		BinarySerializer.Save(charactersShopData, "characters-shop-data.txt");
+		UnityEngine.Debug.Log("<color=magenta>[CharactersShopData] Saved.</color>");
+	}
 }

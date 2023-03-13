@@ -1052,6 +1052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cb53396b7500d4cbd7b1db2020c3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skins: []
+  playerNameText: {fileID: 0}
   speed: 5
 --- !u!61 &412035370
 BoxCollider2D:
@@ -2584,7 +2586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c837ec150db92540b67579b0fe2b5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsUITesxt:
+  coinsUIText:
   - {fileID: 1607064559}
 --- !u!1 &1499378465
 GameObject:
