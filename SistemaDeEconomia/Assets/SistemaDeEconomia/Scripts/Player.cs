@@ -37,7 +37,13 @@ public class Player : MonoBehaviour
         if(tag.Equals("coin"))
         {
             //Añade monedas
-            Debug.Log("hit coin");
+
+            GameDataManager.AddCoins(32);
+
+          #if UNITY_EDITOR
+            if(Input.GetKey(KeyCode.C))
+                GameDataManager.AddCoins(179);
+#endif
 
             Destroy(other.gameObject);
         }
