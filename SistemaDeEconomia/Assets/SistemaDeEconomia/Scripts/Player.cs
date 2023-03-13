@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
                 GameDataManager.AddCoins(179);
 #endif
 
+            GameSharedUI.Instance.UpdateCoinsUIText();
+
             Destroy(other.gameObject);
         }
     }
