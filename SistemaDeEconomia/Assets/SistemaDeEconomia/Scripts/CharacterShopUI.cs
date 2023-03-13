@@ -52,7 +52,7 @@ public class CharacterShopUI : MonoBehaviour
 		AddShopEvents();
 
 		//Fill the shop's UI list with items
-		GenerateShopItemsUI();
+		
 
 		//Set selected character in the playerDataManager .
 		SetSelectedCharacter();
@@ -83,63 +83,7 @@ public class CharacterShopUI : MonoBehaviour
 		GameDataManager.SetSelectedCharacter(characterDB.GetCharacter(index), index);
 	}
 
-	void GenerateShopItemsUI()
-	{
-		//Loop throw save purchased items and make them as purchased in the Database array
-		for (int i = 0; i < GameDataManager.GetAllPurchasedCharacter().Count; i++)
-		{
-			int purchasedCharacterIndex = GameDataManager.GetPurchasedCharacter(i);
-			characterDB.PurchaseCharacter(purchasedCharacterIndex);
-		}
-
-		//Delete itemTemplate after calculating item's Height :
-		itemHeight = ShopItemsContainer.GetChild(0).GetComponent<RectTransform>().sizeDelta.y;
-		Destroy(ShopItemsContainer.GetChild(0).gameObject);
-		//DetachChildren () will make sure to delete it from the hierarchy, otherwise if you 
-		//write ShopItemsContainer.ChildCount you w'll get "1"
-		ShopItemsContainer.DetachChildren();
-
-		//Generate Items
-		for (int i = 0; i < characterDB.CharactersCount; i++)
-		{
-			//Create a Character and its corresponding UI element (uiItem)
-			Character character = characterDB.GetCharacter(i);
-			CharacterItemUI uiItem = Instantiate(itemPrefab, ShopItemsContainer).GetComponent<CharacterItemUI>();
-
-			//Move item to its position
-			uiItem.SetItemPosition(Vector2.down * i * (itemHeight + itemSpacing));
-
-			//Set Item name in Hierarchy (Not required)
-			uiItem.gameObject.name = "Item" + i + "-" + character.name;
-
-			//Add information to the UI (one item)
-			uiItem.SetCharacterName(character.name);
-			uiItem.SetCharacterImage(character.image);
-			uiItem.SetCharacterSpeed(character.speed);
-			uiItem.SetCharacterPower(character.power);
-			uiItem.SetCharacterPrice(character.price);
-
-			if (character.isPurchased)
-			{
-				//Character is Purchased
-				uiItem.SetCharacterAsPurchased();
-				uiItem.OnItemSelect(i, OnItemSelected);
-			}
-			else
-			{
-				//Character is not Purchased yet
-				uiItem.OnItemPurchase(i, OnItemPurchased);
-			}
-
-			//Resize Items Container
-			ShopItemsContainer.GetComponent<RectTransform>().sizeDelta =
-				Vector2.up * ((itemHeight + itemSpacing) * characterDB.CharactersCount + itemSpacing);
-
-			//you can use VerticalLayoutGroup with ContentSizeFitter to skip all of this :
-			//(moving items & resizing the container)
-		}
-
-	}
+	
 
 	void ChangePlayerSkin()
 	{
