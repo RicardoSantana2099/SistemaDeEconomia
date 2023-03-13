@@ -448,7 +448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &384219723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -753,7 +753,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 599699504}
   - component: {fileID: 599699503}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CharacterName_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsUITesxt:
   - {fileID: 1607064559}
+  - {fileID: 873893911}
 --- !u!1 &873893909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,9 +2071,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16742dfa8f13bb4591be39c86447b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSpacing: 13
+  selectedCharacterIcon: {fileID: 262652787}
+  ShopMenu: {fileID: 1188282951}
+  ShopItemsContainer: {fileID: 471771223}
+  itemPrefab: {fileID: 8287724815986527030, guid: d144dc13cf0164f4182efa83478622d7,
+    type: 3}
+  characterDB: {fileID: 11400000, guid: 2bfaa1d581324164593f4cc890c48f5c, type: 2}
   shopUI: {fileID: 384219722}
   openShopButton: {fileID: 1624753895}
   closeShopButton: {fileID: 960191784}
+  mainMenuCharacterImage: {fileID: 1828306018}
+  mainMenuCharacterName: {fileID: 599699503}
 --- !u!1 &1361815363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3162,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 52.59999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec5a8edd3d6c013449b442245cca39ca,
+        type: 3}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.33500084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.25533998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287724815986527028, guid: d144dc13cf0164f4182efa83478622d7,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8287724815986527029, guid: d144dc13cf0164f4182efa83478622d7,
         type: 3}

@@ -25,7 +25,7 @@ MonoBehaviour:
     speed: 11
     power: 9
     price: 1500
-    isPurchased: 0
+    isPurchased: 1
   - image: {fileID: 6450229677706711854, guid: 7e2c2cfe3fe72644ab14621054394656, type: 3}
     name: Andy
     speed: 15
