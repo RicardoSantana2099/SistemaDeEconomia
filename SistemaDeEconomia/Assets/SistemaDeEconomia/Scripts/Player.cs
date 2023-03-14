@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if (!Input.GetKey(KeyCode.M))
         {
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
                 x = Input.GetAxis("Horizontal");
                 y = Input.GetAxis("Vertical");
